@@ -1,0 +1,239 @@
+@font-face {
+    font-family: "proxima_regular";
+    src: url("./fonts/proximanova_regular.ttf");
+}
+
+@font-face {
+    font-family: "proxima_black";
+    src: url("./fonts/proximanova_black.ttf");
+}
+
+:root {
+    --text-alt: darkgray;
+    --accent: limegreen;
+    --grey0: rgb(250, 255, 255);
+}
+.light {
+    --text: black;
+    --text-alt: darkgray;
+    --accent: limegreen;
+    --accent2: darkgreen;
+    --background: var(--grey0);
+    --invert: 0;
+}
+
+.dark {
+    --text: white;
+    --text-alt: darkgray;
+    --accent: limegreen;
+    --accent2: darkgreen;
+    --background: rgb(24, 24, 24);
+    --invert: 1;
+}
+
+/* dark mode toggle! */
+.theme-toggle {
+    position:absolute;
+   margin-left: 0;
+   padding:5px;
+   transform: scale(2);
+    z-index: 1;
+}
+
+html {
+    font-family: "proxima_regular";
+}
+
+body {
+    background-color: grey;
+    color: var(--text);
+
+    transition: background 500ms ease-in-out, color 500ms ease-in-out;
+
+}
+a {
+    color:rgb(17, 85, 204);
+}
+
+.resumeCanvas {
+    position: relative;
+    margin: 0 auto;
+    box-sizing: border-box;
+    padding: 0.3in;
+    margin: 0.1in;
+    width: 8.5in;
+    height: 12in;
+    background-color: var(--background) ;
+    box-shadow: 0 3px 8px -3px rgba(0, 0, 0, 0.7);
+
+    margin-left: auto;
+    margin-right: auto;
+    /* font-family: 'Comic mono' */
+    grid-template-columns: 1fr 1fr;
+}
+.splash{
+    background-color: var(--accent);
+    position: absolute;
+    width:100%;
+    left:0;
+    top:0;
+    height:100px;
+    clip-path: polygon(0 0, 0% 100%, 0% 100%,  70% 0%);
+
+}
+
+.resumeCanvas h2 {
+    color: var(--accent);
+    text-transform: uppercase;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2em;
+    /* background-color: var(--accent); */
+}
+header * {
+    margin-top: 0;
+    margin-bottom:0;
+}
+
+header .myname {
+    /* text-align: left; */
+}
+
+header .mydetails {
+    text-align: right;
+    margin-bottom: 0;
+    display:inline-flex;
+    flex-direction: column;
+}
+header .mydetails a {
+    text-decoration:underline dotted;
+}
+
+ul {
+    list-style-type: none;
+    columns: 2;
+    margin-top: 0.5em;
+}
+
+.nosplit {
+    columns: 1;
+}
+
+li {
+    break-inside: avoid-column;
+}
+
+li:before {
+    content: "\002756 ";
+    margin: 0 .5em;
+}
+
+li ul {
+    margin-top: 0;
+}
+
+h1 {
+    color: var(--text);
+    transform: scale(1);
+    transition: all 1s ease-in-out;
+    transform: rotate(0deg);
+    font-style: italic;
+
+}
+
+h2 {
+    font-family: "proxima_regular";
+    font-size: larger;
+    font-weight: bolder;
+    margin-bottom: 0;
+    /* font-family: "Roboto", serif; */
+}
+
+h3 {
+    margin: 0;
+    font-size: medium;
+
+}
+h3 em{
+    color:var(--text-alt);
+    font-weight: lighter;
+}
+
+h4 {
+    margin: 0 0;
+    font-size: small;
+    font-style: italic;
+    color: var(--text-alt);
+    font-weight: lighter;
+}
+
+.skill-icons {
+    margin-right: auto;
+    margin-left: auto;
+    max-width: fit-content;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    float:right;
+
+}
+
+.skill-icons img {
+    width: 40px;
+    height: 40px;
+    transition: transform 0.1s ease-in-out;
+    transform: translateX(0px) scale(1) rotate(0deg);
+    padding: 3px;
+    float:inherit;
+}
+.skill-icons img.dark-invert {
+    filter: invert(var(--invert));
+}
+
+.skill-icons img:nth-child(even):hover {
+    transform: translateX(0px) scale(1.2) rotate(5deg);
+}
+
+.skill-icons img:nth-child(odd):hover {
+    transform: translateX(0px) scale(1.2) rotate(-5deg);
+}
+
+
+
+h2.endText {
+    padding-top: 1em;
+    text-align: center;
+    color: var(--accent2);
+}
+
+h1:hover {
+    color: purple;
+    transform: scale(1.2);
+    /* transform: rotate(360deg); */
+    animation: tilt-n-move-shaking 0.25s infinite;
+}
+
+@keyframes tilt-n-move-shaking {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+
+    25% {
+        transform: translate(5px, 5px) rotate(5deg);
+    }
+
+    50% {
+        transform: translate(0, 0) rotate(0eg);
+    }
+
+    75% {
+        transform: translate(-5px, 5px) rotate(-5deg);
+    }
+
+    100% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+}
