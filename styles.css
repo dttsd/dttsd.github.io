@@ -100,8 +100,9 @@ header * {
 
 header .myname {
     /* text-align: left; */
-    transform: rotate(-15deg);
+    transform: rotate(-10deg);
     filter: invert(1);
+    font-style: normal;
 }
 
 header .mydetails {
